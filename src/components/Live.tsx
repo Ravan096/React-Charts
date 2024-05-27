@@ -82,7 +82,7 @@ const Live = () => {
                 return newData;
             });
         }, 2500);
-
+// test
         return () => clearInterval(interval);
     }, []);
 
