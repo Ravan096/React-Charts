@@ -5,6 +5,7 @@ import Header from './layouts/Header';
 import Loader from './layouts/Loader';
 const Chart= lazy(()=> import("./components/charts"));
 const Home = lazy(()=>import("./components/Home"));
+const CreatePassword = lazy(()=>import("./layouts/CreatePassword"));
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/chart' element={<Chart/>}/>
+          <Route path='/createpassword' element={<CreatePassword/>}/>
 
         </Routes>
       </Suspense>

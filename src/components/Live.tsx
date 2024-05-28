@@ -1,4 +1,5 @@
-import Highcharts from "highcharts";
+// import Highcharts from "highcharts";
+import Highcharts from 'highcharts/highstock';
 import HighchartsReact from "highcharts-react-official";
 import { useEffect, useRef, useState } from "react";
 
@@ -70,7 +71,7 @@ const Live = () => {
                 const newData = [...prevData, demodata];
                 if (newData.length > 15) {
                     newData.splice(0, newData.length - 15);
-                    console.log(newData);
+                    // console.log(newData);
                 }
 
                 if (ref.current) {

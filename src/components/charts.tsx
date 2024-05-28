@@ -5,11 +5,13 @@ import "../styles/chart.css"
 import ProcessTimeCore from './ProcessTimeCore';
 import LiveChart from './LiveChart';
 import Live from './Live';
+import BrushChart from './BrushChart';
 
 
 const Chart = () => {
   return (
     <div className='demochart'>
+        <BrushChart/>
         <Live/>
         <LiveChart/>
         <DiskUsageChart/>

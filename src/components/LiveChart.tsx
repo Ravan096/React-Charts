@@ -11,10 +11,6 @@ const LiveChart = () => {
     const chartRef = useRef<Highcharts.Chart | null>(null);
     const chartContainer = useRef<HTMLDivElement | null>(null);
 
-
-
-    const maxLength = 15;
-
     const initialData = [
         {
             "DateTime": "2024-05-24T05:34:24",
@@ -146,7 +142,7 @@ const LiveChart = () => {
         if (chartContainer.current) {
             chartRef.current = Highcharts.chart(chartContainer.current, {
                 chart: {
-                    type: "areaspline"
+                    type: "area"
                 },
                 title: {
                     text: "Processor Time Core Usage",
@@ -220,7 +216,7 @@ const LiveChart = () => {
                         categories: timestamps
                     },
                     series: series.map(d => ({
-                        type: "line",
+                        type: "area",
                         data: d.data,
                         name: d.name,
                         stack: d.stack
@@ -236,17 +232,17 @@ const LiveChart = () => {
             var demodata = {
                 "DateTime": "2024-05-24T04:41:44",
                 "WinServer": "CTS02",
-                "PercentProcessorTimeCore": `[\r\n  {\r\n    \"Core\": \"0\",\r\n    \"Value\": ${Math.ceil(Math.random() * 21)}\r\n  },\r\n  {\r\n    \"Core\": \"1\",\r\n    \"Value\": ${Math.ceil(Math.random() * 21)}\r\n  },\r\n  {\r\n    \"Core\": \"2\",\r\n    \"Value\": ${Math.ceil(Math.random() * 30)}\r\n  },\r\n  {\r\n    \"Core\": \"3\",\r\n    \"Value\": ${Math.ceil(Math.random() * 22)}\r\n  },\r\n  {\r\n    \"Core\": \"_total\",\r\n    \"Value\": ${Math.ceil(Math.random() * 500)}\r\n  },\r\n  {\r\n    \"Core\": \"SqlServerCPU\",\r\n    \"Value\": ${Math.ceil(Math.random() * 11)}\r\n  }\r\n]`
+                "PercentProcessorTimeCore": `[\r\n  {\r\n    \"Core\": \"0\",\r\n    \"Value\": ${Math.ceil(Math.random() * 100)}\r\n  },\r\n  {\r\n    \"Core\": \"1\",\r\n    \"Value\": ${Math.ceil(Math.random() * 100)}\r\n  },\r\n  {\r\n    \"Core\": \"2\",\r\n    \"Value\": ${Math.ceil(Math.random() * 100)}\r\n  },\r\n  {\r\n    \"Core\": \"3\",\r\n    \"Value\": ${Math.ceil(Math.random() * 100)}\r\n  },\r\n  {\r\n    \"Core\": \"_total\",\r\n    \"Value\": ${Math.ceil(Math.random() * 500)}\r\n  },\r\n  {\r\n    \"Core\": \"SqlServerCPU\",\r\n    \"Value\": ${Math.ceil(Math.random() * 11)}\r\n  }\r\n]`
             };
 
             setRawData(prevData => {
                 const newData = [...prevData, demodata];
-                if (newData.length > maxLength) {
+                if (newData.length > 15) {
                     newData.shift();
                 }
                 return newData;
             });
-        }, 5000);
+        }, 2500);
 
         return () => clearInterval(interval);
     }, []);
